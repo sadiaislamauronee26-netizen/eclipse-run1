@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>ECLIPSE RUN: THE LOST KINGDOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer"></div>
+    
+    <!-- Main Menu -->
+    <div id="mainMenu" class="screen">
+        <div class="menuBackground"></div>
+        <div class="screenContent menuContent">
+            <h1 class="gameTitle">ECLIPSE RUN</h1>
+            <h2 class="gameSubtitle">THE LOST KINGDOM</h2>
+            <p class="storyText">The kingdom of Aetheria shattered during the Celestial Eclipse...<br>Guide Lyra and Lumi to survive the lost lands.</p>
+            <div class="menuButtons">
+                <button id="startGameBtn" class="menuButton">START RUN</button>
+                <button id="howToPlayBtn" class="menuButton">HOW TO PLAY</button>
+                <button id="settingsBtn" class="menuButton">SETTINGS</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- How to Play -->
+    <div id="howToPlayScreen" class="screen hidden">
+        <div class="screenContent">
+            <h2>HOW TO PLAY</h2>
+            <div class="instructions">
+                <p><strong>Desktop:</strong></p>
+                <p>A / ← - Move Left | D / → - Move Right</p>
+                <p>W / ↑ / SPACE - Jump | S / ↓ - Slide</p>
+                <p>ESC - Pause | R - Restart</p>
+                <br>
+                <p><strong>Mobile:</strong></p>
+                <p>Swipe Left/Right - Move Lanes</p>
+                <p>Swipe Up - Jump | Swipe Down - Slide</p>
+                <p>Use on-screen buttons or taps</p>
+                <br>
+                <p><strong>Goal:</strong> Survive, collect Moon Shards & Eclipse Crystals</p>
+            </div>
+            <button id="backFromHowToBtn" class="menuButton">BACK</button>
+        </div>
+    </div>
+    
+    <!-- Settings -->
+    <div id="settingsScreen" class="screen hidden">
+        <div class="screenContent">
+            <h2>SETTINGS</h2>
+            <div class="settingsOptions">
+                <label class="settingItem">
+                    <input type="checkbox" id="mobilePerfToggle"> Mobile Performance Mode
+                </label>
+                <label class="settingItem">
+                    <input type="checkbox" id="showTouchToggle" checked> Show Touch Controls
+                </label>
+            </div>
+            <button id="backFromSettingsBtn" class="menuButton">BACK</button>
+        </div>
+    </div>
+    
+    <!-- HUD -->
+    <div id="hud" class="hud hidden">
+        <div class="hudTop">
+            <div class="hudPanel">
+                <div class="hudItem">⭐ <span id="score">0</span></div>
+                <div class="hudItem">📍 <span id="distance">0</span>m</div>
+                <div class="hudItem">🌙 <span id="moonShards">0</span></div>
+                <div class="hudItem">💎 <span id="eclipseCrystals">0</span></div>
+            </div>
+            <button id="mobilePauseBtn" class="mobilePauseBtn">⏸</button>
+        </div>
+        <div class="hudZone">🗺️ <span id="zoneName">MOONLIT RUINS</span></div>
+        <div class="hudRight">
+            <div id="powerupIndicator" class="powerupIndicator hidden">⚡ POWER</div>
+        </div>
+    </div>
+    
+    <!-- Pause Screen -->
+    <div id="pauseScreen" class="screen hidden">
+        <div class="screenContent">
+            <h1>PAUSED</h1>
+            <button id="resumeBtn" class="menuButton">RESUME</button>
+            <button id="pauseMenuBtn" class="menuButton">MAIN MENU</button>
+        </div>
+    </div>
+    
+    <!-- Mobile Touch Controls -->
+    <div id="mobileControls" class="mobileControls hidden">
+        <button id="btnLeft" class="touchBtn touchLeft">◀</button>
+        <button id="btnRight" class="touchBtn touchRight">▶</button>
+        <button id="btnJump" class="touchBtn touchJump">▲</button>
+        <button id="btnSlide" class="touchBtn touchSlide">▼</button>
+    </div>
+    
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="screen hidden">
+        <div class="screenContent gameOverContent">
+            <h1>GAME OVER</h1>
+            <div class="stats">
+                <p>Final Score: <span id="finalScore" class="highlight">0</span></p>
+                <p>Distance: <span id="finalDistance" class="highlight">0</span>m</p>
+                <p>Moon Shards: <span id="finalMoonShards" class="highlight">0</span></p>
+                <p>Best Score: <span id="bestScore" class="highlight">0</span></p>
+            </div>
+            <div class="gameOverButtons">
+                <button id="restartBtn" class="menuButton">RUN AGAIN</button>
+                <button id="mainMenuFromOverBtn" class="menuButton">MAIN MENU</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
